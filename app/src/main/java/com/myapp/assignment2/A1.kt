@@ -47,18 +47,20 @@ class A1 : AppCompatActivity() {
         var i=Intent(this,A2::class.java)
         startActivity(i)
         finish()
+
     }
     @RequiresApi(Build.VERSION_CODES.O)
     fun UpdateNotification()
     {
         val notification: Notification = Notification.Builder(this, "2")
             .setContentTitle("BOOKS APP")
-            .setContentText("Current Page is 2")
+            .setContentText("Current Page is 1")
             .setSmallIcon(R.drawable.ic_stat_add_alert)
             .build()
 
         var manger=getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         manger.notify(2,notification)
     }
+
 
 }

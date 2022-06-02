@@ -50,6 +50,10 @@ class MainActivity : AppCompatActivity() {
 
         var i =IntentFilter()
         i.addAction("com.assignment4.CHANGE_INTENT")
+        i.addAction("android.intent.action.SCREEN_ON")
+        i.addAction("android.intent.action.SCREEN_OFF")
+        i.addAction("android.intent.action.AIRPLANE_MODE")
+        i.addAction("android.media.VOLUME_CHANGED_ACTION")
         registerReceiver(p,i)
 
     }
@@ -57,5 +61,7 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         unregisterReceiver(p)
+        stopService(Intent(this,MusicService::class.java))
+        stopService(Intent(this,ForegroundService::class.java))
     }
 }

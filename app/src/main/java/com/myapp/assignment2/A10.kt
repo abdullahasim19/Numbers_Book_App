@@ -1,15 +1,23 @@
 package com.myapp.assignment2
 
+import android.app.Notification
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.GridView
+import androidx.annotation.RequiresApi
 
 class A10 : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_a10)
+
+        UpdateNotification()
 
         var Icons=ArrayList<Int>()
         Icons.add(R.drawable.mario)
@@ -34,5 +42,17 @@ class A10 : AppCompatActivity() {
         b.setOnClickListener {
             finish()
         }
+    }
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun UpdateNotification()
+    {
+        val notification: Notification = Notification.Builder(this, "2")
+            .setContentTitle("BOOKS APP")
+            .setContentText("Current Page is 10")
+            .setSmallIcon(R.drawable.ic_stat_add_alert)
+            .build()
+
+        var manger=getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        manger.notify(2,notification)
     }
 }

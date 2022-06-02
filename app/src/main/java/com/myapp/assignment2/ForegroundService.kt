@@ -22,7 +22,7 @@ class ForegroundService:Service() {
         createNotificationChannel()
         val notification: Notification = Notification.Builder(this, "2")
             .setContentTitle("BOOKS APP")
-            .setContentText("Current Page is 1")
+            .setContentText("Welcome")
             .setSmallIcon(R.drawable.ic_stat_add_alert)
             .build()
 
